@@ -5,7 +5,7 @@ import db from "../src/config/db.js";
 
 describe("Recipe Model with Real Database", () => {
   beforeAll(async () => {
-    await db.query('TRUNCATE TABLE recipes');
+    await db.query("TRUNCATE TABLE recipes");
 
     // Insertion des données initiales pour les its
     await db.query(`
@@ -71,7 +71,6 @@ describe("Recipe Model with Real Database", () => {
       ingredients: "Updated ingredients",
       type: "Dessert",
       categorie_id: 2,
-      
     };
     const updatedRecipe = await RecipeModel.updateRecipe(
       createdRecipe.id,
