@@ -1,12 +1,12 @@
 // import db from "../config/db.js"; // Ensure the path reflects your directory structure
-import CategoryModel from "../models/category.js"; // Import the Category model
+import CategoryModel from '../models/category.js'; // Import the Category model
 
 export const getCategoryById = async (req, res) => {
   const { id } = req.params;
   try {
     const category = await CategoryModel.getCategoryById(id);
     if (!category) {
-      return res.status(404).json({ message: "Catégorie non trouvée." });
+      return res.status(404).json({ message: 'Catégorie non trouvée.' });
     }
     return res.status(200).json(category);
   } catch (err) {
@@ -26,8 +26,8 @@ export const getAllCategories = async (req, res) => {
 export const createCategory = async (req, res) => {
   const { name } = req.body; // Assuming your category object has a 'name' property
 
-  if (!name || name.trim() === "") {
-    return res.status(400).json({ message: "Le nom de la catégorie ne peut pas être vide!" });
+  if (!name || name.trim() === '') {
+    return res.status(400).json({ message: 'Le nom de la catégorie ne peut pas être vide!' });
   }
 
   try {
@@ -42,14 +42,14 @@ export const updateCategory = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
 
-  if (!name || name.trim() === "") {
-    return res.status(400).json({ message: "Le nom de la catégorie ne peut pas être vide!" });
+  if (!name || name.trim() === '') {
+    return res.status(400).json({ message: 'Le nom de la catégorie ne peut pas être vide!' });
   }
 
   try {
     const updatedCategory = await CategoryModel.updateCategory(id, name);
     if (!updatedCategory) {
-      return res.status(404).json({ message: "Catégorie non trouvée." });
+      return res.status(404).json({ message: 'Catégorie non trouvée.' });
     }
     return res.status(200).json(updatedCategory);
   } catch (err) {
@@ -62,7 +62,7 @@ export const deleteCategory = async (req, res) => {
   try {
     const deleted = await CategoryModel.deleteCategory(id);
     if (!deleted) {
-      return res.status(404).json({ message: "Catégorie non trouvée." });
+      return res.status(404).json({ message: 'Catégorie non trouvée.' });
     }
     return res.status(204).send();
   } catch (err) {
