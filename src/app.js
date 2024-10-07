@@ -4,10 +4,16 @@ import recipeRoutes from "./routes/recipeRoutes.js"; // Import des routes de rec
 import categoryRoutes from "./routes/categoryRoutes.js"; // Import des routes de catégories
 
 
-const app = express(); // Correct initialization of 'app'
+const app = express(); 
 
-app.use(cors()); // Enable CORS for all routes
-app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(cors()); 
+app.use(express.json()); 
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+};
+app.use(cors("*", corsOptions));
 
 app.use("/api", recipeRoutes); 
 app.use("/api", categoryRoutes); 
