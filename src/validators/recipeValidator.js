@@ -19,7 +19,7 @@ const validateCreateRecipe = () => {
       .bail()
       .isLength({ min: 10, max: 500 })
       .withMessage(
-        "Les ingrédients doivent contenir entre 10 et 500 caractères!"
+        "Les ingrédients doivent contenir entre 10 et 500 caractères!",
       ),
 
     check("type")
@@ -29,7 +29,7 @@ const validateCreateRecipe = () => {
       .bail()
       .isIn(["Entree", "plat principal", "Dessert"])
       .withMessage(
-        "Le type de recette doit être 'Entree', 'plat principal' ou 'Dessert'!"
+        "Le type de recette doit être 'Entree', 'plat principal' ou 'Dessert'!",
       ),
 
     check("categorie_id")
@@ -63,14 +63,14 @@ const validateUpdateRecipe = () => {
       .optional()
       .isLength({ min: 10, max: 500 })
       .withMessage(
-        "Les ingrédients doivent contenir entre 10 et 500 caractères!"
+        "Les ingrédients doivent contenir entre 10 et 500 caractères!",
       ),
 
     check("type")
       .optional()
       .isIn(["Entree", "plat principal", "Dessert"])
       .withMessage(
-        "Le type de recette doit être 'Entree', 'plat principal' ou 'Dessert'!"
+        "Le type de recette doit être 'Entree', 'plat principal' ou 'Dessert'!",
       ),
 
     check("categorie_id")

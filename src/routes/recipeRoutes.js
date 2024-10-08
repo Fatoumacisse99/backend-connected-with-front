@@ -1,5 +1,5 @@
 import express from "express";
-import recipeController from "../controllers/Recipe.js"; 
+import recipeController from "../controllers/Recipe.js";
 import {
   validateCreateRecipe,
   validateUpdateRecipe,
@@ -16,28 +16,28 @@ router.get(
   "/recipes/:id",
   validateUpdateRecipe(),
   validate,
-  recipeController.getRecipeById
+  recipeController.getRecipeById,
 );
 
 router.post(
   "/recipes",
   validateCreateRecipe(),
   validate,
-  recipeController.createRecipe
+  recipeController.createRecipe,
 );
 
 router.put(
   "/recipes/:id",
   validateUpdateRecipe(),
   validate,
-  recipeController.updateRecipe
+  recipeController.updateRecipe,
 );
 
 router.delete(
   "/recipes/:id",
   validateDeleteRecipe(),
   validate,
-  recipeController.deleteRecipe
+  recipeController.deleteRecipe,
 );
 
-export default router; 
+export default router;

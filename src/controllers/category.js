@@ -47,7 +47,9 @@ export const updateCategory = async (req, res) => {
     // Vérifiez si une catégorie avec ce nom existe déjà, mais pas celle que vous mettez à jour
     const existingCategory = await CategoryModel.findCategoryByName(name);
     if (existingCategory && existingCategory.id !== id) {
-      return res.status(400).json({ message: "Une catégorie avec ce nom existe déjà." });
+      return res
+        .status(400)
+        .json({ message: "Une catégorie avec ce nom existe déjà." });
     }
 
     const updatedCategory = await CategoryModel.updateCategory(id, name);
@@ -70,7 +72,6 @@ export const deleteCategory = async (req, res) => {
     return res.status(400).json({ message: err.message }); // Gérer les erreurs de manière appropriée
   }
 };
-
 
 // Exporter toutes les fonctions
 export default {

@@ -55,7 +55,7 @@ const findCategoryByName = async (name) => {
 
 //   const query = "DELETE FROM categories WHERE id = ?";
 //   await db.query(query, [id]);
-//   return { id }; 
+//   return { id };
 // };
 const deleteCategory = async (id) => {
   if (isNaN(id)) {
@@ -75,7 +75,9 @@ const deleteCategory = async (id) => {
   const [recipes] = await db.query(recipesCheckQuery, [id]);
 
   if (recipes.length > 0) {
-    throw new Error("Impossible de supprimer cette catégorie. Elle est utilisée dans des recettes.");
+    throw new Error(
+      "Impossible de supprimer cette catégorie. Elle est utilisée dans des recettes.",
+    );
   }
 
   const query = "DELETE FROM categories WHERE id = ?";
@@ -83,8 +85,6 @@ const deleteCategory = async (id) => {
 
   return { message: "Catégorie supprimée avec succès", id }; // Retourner un message de succès
 };
-
-
 
 // Exportation des fonctions du modèle
 export default {
@@ -94,5 +94,4 @@ export default {
   updateCategory,
   deleteCategory,
   findCategoryByName,
-
 };

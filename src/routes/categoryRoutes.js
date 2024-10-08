@@ -1,5 +1,5 @@
 import express from "express";
-import categoryController from "../controllers/category.js"; 
+import categoryController from "../controllers/category.js";
 import {
   validateCreateCategory,
   validateUpdateCategory,
@@ -16,28 +16,28 @@ router.get(
   "/categories/:id",
   validateUpdateCategory(),
   validate,
-  categoryController.getCategoryById
+  categoryController.getCategoryById,
 );
 
 router.post(
   "/categories",
   validateCreateCategory(),
   validate,
-  categoryController.createCategory
+  categoryController.createCategory,
 );
 
 router.put(
   "/categories/:id",
   validateUpdateCategory(),
   validate,
-  categoryController.updateCategory
+  categoryController.updateCategory,
 );
 
 router.delete(
   "/categories/:id",
   validateDeleteCategory(),
   validate,
-  categoryController.deleteCategory
+  categoryController.deleteCategory,
 );
 
-export default router; 
+export default router;

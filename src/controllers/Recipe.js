@@ -1,4 +1,3 @@
-
 // import RecipeModel from "../models/recipe.js";
 // import CategoryModel from "../models/category.js"; // Import the Category model
 
@@ -49,7 +48,7 @@
 
 //     // Check if the category exists using the Category model
 //     const existingCategory = await CategoryModel.getCategoryById(categorie_id);
-    
+
 //     let categoryId;
 
 //     if (existingCategory) {
@@ -204,7 +203,9 @@ export const createRecipe = async (req, res) => {
     // Check if the category exists using the Category model
     const existingCategory = await CategoryModel.getCategoryById(categorie_id);
     if (!existingCategory) {
-      return res.status(400).json({ message: "La catégorie spécifiée n'existe pas." });
+      return res
+        .status(400)
+        .json({ message: "La catégorie spécifiée n'existe pas." });
     }
 
     // Prepare the recipe data with the category ID
@@ -256,12 +257,16 @@ export const updateRecipe = async (req, res) => {
 
     const recipeWithSameTitle = await RecipeModel.getRecipeByTitle(titre);
     if (recipeWithSameTitle && recipeWithSameTitle.id !== id) {
-      return res.status(400).json({ message: "Une recette avec ce titre existe déjà." });
+      return res
+        .status(400)
+        .json({ message: "Une recette avec ce titre existe déjà." });
     }
 
     const existingCategory = await CategoryModel.getCategoryById(categorie_id);
     if (!existingCategory) {
-      return res.status(400).json({ message: "La catégorie spécifiée n'existe pas." });
+      return res
+        .status(400)
+        .json({ message: "La catégorie spécifiée n'existe pas." });
     }
 
     const recipeData = {
