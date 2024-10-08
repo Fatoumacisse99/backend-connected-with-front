@@ -26,11 +26,14 @@ const validateUpdateCategory = () => {
       .isInt({ gt: 0 })
       .withMessage("L'ID doit être un entier positif!"),
 
-    check("name")
-      .optional()
-      .isLength({ min: 3, max: 50 })
+      check("name")
+      .not()
+      .isEmpty()
+      .withMessage("Le nom de la catégorie ne peut pas être vide!")
+      .bail()
+      .isLength({ min: 3, max: 100 })
       .withMessage(
-        "Le nom de la catégorie doit contenir entre 3 et 50 caractères!",
+        "Le nom de la catégorie doit contenir entre 3 et 100 caractères!",
       ),
   ];
 };

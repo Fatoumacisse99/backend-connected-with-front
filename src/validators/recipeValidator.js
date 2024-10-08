@@ -68,9 +68,9 @@ const validateUpdateRecipe = () => {
 
     check("type")
       .optional()
-      .isIn(["Entree", "plat principal", "Dessert"])
+      .isIn(["Entree", "plat principal", "Dessert", "Snack"])
       .withMessage(
-        "Le type de recette doit être 'Entree', 'plat principal' ou 'Dessert'!",
+        "Le type de recette doit être 'Entree', 'plat principal' ou 'Dessert' ou 'Snack'!",
       ),
 
     check("categorie_id")
@@ -89,7 +89,10 @@ const validateDeleteRecipe = () => {
       .withMessage("L'ID est requis pour supprimer une recette!")
       .bail()
       .isInt({ gt: 0 })
-      .withMessage("L'ID doit être un entier positif."),
+      .withMessage("L'ID doit être un entier positif.")
+      .bail()
+      .isInt({ gt: 0 })
+      .withMessage('L\'ID doit être un entier positif.'),
   ];
 };
 
