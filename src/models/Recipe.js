@@ -1,6 +1,6 @@
 import db from "../config/db.js"; // Ensure the path reflects your directory structure
 
-// Obtenir une recette par titre
+
 const getRecipeByTitle = async (titre) => {
   const query = "SELECT * FROM recipes WHERE titre = ?";
   const [rows] = await db.query(query, [titre]);
@@ -17,7 +17,7 @@ const createRecipe = async (recipeData) => {
     ingredients,
     type,
     categorie_id,
-  ]); // Include category_id
+  ]); 
   return { id: result.insertId, titre, ingredients, type, categorie_id }; // Include category_id
 };
 

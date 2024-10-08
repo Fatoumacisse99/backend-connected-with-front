@@ -13,7 +13,7 @@ const getCategoryById = async (id) => {
 
 // Obtenir toutes les catégories
 const getAllCategories = async () => {
-  const query = "SELECT * FROM categories";
+  const query = "SELECT * FROM categories ORDER BY id ASC";
   const [rows] = await db.query(query);
   return rows;
 };
