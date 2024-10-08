@@ -8,8 +8,8 @@ const validateCreateCategory = () => {
       .isEmpty()
       .withMessage("Le nom de la catégorie ne peut pas être vide!")
       .bail()
-      .isLength({ min: 3, max: 50 })
-      .withMessage("Le nom de la catégorie doit contenir entre 3 et 50 caractères!"),
+      .isLength({ min: 3, max: 100 })
+      .withMessage("Le nom de la catégorie doit contenir entre 3 et 100 caractères!"),
   ];
 };
 
