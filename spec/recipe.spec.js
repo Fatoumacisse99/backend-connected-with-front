@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import RecipeModel from "../src/models/recipe.js";
+import RecipeModel from "../src/models/RecipeModel.js";
 import db from "../src/config/db.js";
 
 describe("Recipe Model with Real Database", () => {

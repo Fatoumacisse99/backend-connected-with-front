@@ -1,4 +1,4 @@
-import CategoryModel from "../src/models/category.js";
+import CategoryModel from "../src/models/categoryModel.js";
 import db from "../src/config/db.js";
 
 describe("Category Model with Real Database", () => {

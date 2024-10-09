@@ -92,7 +92,7 @@ const validateDeleteRecipe = () => {
       .withMessage("L'ID doit être un entier positif.")
       .bail()
       .isInt({ gt: 0 })
-      .withMessage('L\'ID doit être un entier positif.'),
+      .withMessage("L'ID doit être un entier positif."),
   ];
 };
 

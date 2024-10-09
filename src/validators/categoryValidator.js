@@ -26,7 +26,7 @@ const validateUpdateCategory = () => {
       .isInt({ gt: 0 })
       .withMessage("L'ID doit être un entier positif!"),
 
-      check("name")
+    check("name")
       .not()
       .isEmpty()
       .withMessage("Le nom de la catégorie ne peut pas être vide!")

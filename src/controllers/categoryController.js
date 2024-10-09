@@ -1,5 +1,4 @@
-import CategoryModel from "../models/category.js"; // Import du modèle Category
-
+import CategoryModel from "../models/categoryModel.js";
 export const getCategoryById = async (req, res) => {
   const { id } = req.params;
   try {
@@ -26,7 +25,6 @@ export const createCategory = async (req, res) => {
   const { name } = req.body;
 
   try {
-    // Vérifiez si la catégorie existe déjà
     const existingCategory = await CategoryModel.findCategoryByName(name);
     if (existingCategory) {
       return res.status(400).json({ message: "Cette catégorie existe déjà." });
@@ -44,7 +42,6 @@ export const updateCategory = async (req, res) => {
   const { name } = req.body;
 
   try {
-    // Vérifiez si une catégorie avec ce nom existe déjà, mais pas celle que vous mettez à jour
     const existingCategory = await CategoryModel.findCategoryByName(name);
     if (existingCategory && existingCategory.id !== id) {
       return res
@@ -65,15 +62,13 @@ export const updateCategory = async (req, res) => {
 export const deleteCategory = async (req, res) => {
   const { id } = req.params;
   try {
-    const result = await CategoryModel.deleteCategory(id); // Supposons que deleteCategory renvoie un message de succès
+    const result = await CategoryModel.deleteCategory(id);
 
-    return res.status(200).json({ message: result.message }); // Retourner le message de confirmation
+    return res.status(200).json({ message: result.message });
   } catch (err) {
-    return res.status(400).json({ message: err.message }); // Gérer les erreurs de manière appropriée
+    return res.status(400).json({ message: err.message });
   }
 };
-
-// Exporter toutes les fonctions
 export default {
   getCategoryById,
   getAllCategories,
